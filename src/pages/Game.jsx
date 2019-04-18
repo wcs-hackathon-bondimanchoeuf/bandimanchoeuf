@@ -11,15 +11,19 @@ class Game extends Component {
     super(props);
     this.state = {
       score: 50,
-      isLoadingEggStore: true,
+      isLoadingEggs: true,
       eggs: []
     };
   }
 
+  componentDidMount() {
+    this.getDataFromApi();
+  }
+
   getDataFromApi = () => {
-    this.setState({ isLoadingEggStore: true });
+    this.setState({ isLoadingEggs: true });
     let getRandomEggs = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 10; i++) {
       getRandomEggs.push(
         axios
           .get("http://easteregg.wildcodeschool.fr/api/eggs/random")
@@ -27,7 +31,7 @@ class Game extends Component {
       );
     }
     Promise.all(getRandomEggs).then(eggs =>
-      this.setState({ eggs, isLoadingEggStore: false })
+      this.setState({ eggs, isLoadingEggs: false })
     );
   };
 
@@ -44,11 +48,11 @@ class Game extends Component {
         <Col xs="9">
           <Row>
             <Col>
-              <button onClick={this.getDataFromApi}>click</button>{" "}
-              {/* button to remove, only for test */}
               <Gambling
                 onClickTryAgain={this.handleClickTryAgain}
                 onClickRoll={this.handleClickRoll}
+                eggs={this.state.eggs}
+                isLoadingEggs={this.state.isLoadingEggs}
               />
             </Col>
           </Row>

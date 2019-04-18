@@ -1,22 +1,56 @@
 import React from "react";
-import { Row, Col, Button } from "reactstrap";
-import gamblingEgg from "./gamblingEgg.png";
+import { Row, Col, Button, Spinner } from "reactstrap";
 
 const Gambling = props => {
+  const maxRand = props.eggs.length;
+  const idEgg1 = Math.floor(Math.random() * maxRand);
+  const idEgg2 = Math.floor(Math.random() * maxRand);
+  const idEgg3 = Math.floor(Math.random() * maxRand);
+
   return (
     <div>
       <Row>
         <Col xs={{ size: 3 }}>
-          Egg 1
-          <img src={gamblingEgg} alt="" style={{ maxWidth: "100%" }} />
+          {props.isLoadingEggs ? (
+            <Spinner />
+          ) : (
+            <div>
+              <p>{props.eggs[idEgg1].name}</p>
+              <img
+                src={props.eggs[idEgg1].image}
+                alt=""
+                style={{ maxWidth: "100%", maxHeight: "150px" }}
+              />
+            </div>
+          )}
         </Col>
         <Col xs={{ size: 3 }}>
-          Egg 2
-          <img src={gamblingEgg} alt="" style={{ maxWidth: "100%" }} />
+          {props.isLoadingEggs ? (
+            <Spinner />
+          ) : (
+            <div>
+              <p>{props.eggs[idEgg2].name}</p>
+              <img
+                src={props.eggs[idEgg2].image}
+                alt=""
+                style={{ maxWidth: "100%", maxHeight: "150px" }}
+              />
+            </div>
+          )}
         </Col>
         <Col xs={{ size: 3 }}>
-          Egg 3
-          <img src={gamblingEgg} alt="" style={{ maxWidth: "100%" }} />
+          {props.isLoadingEggs ? (
+            <Spinner />
+          ) : (
+            <div>
+              <p>{props.eggs[idEgg3].name}</p>
+              <img
+                src={props.eggs[idEgg3].image}
+                alt=""
+                style={{ maxWidth: "100%", maxHeight: "150px" }}
+              />
+            </div>
+          )}
         </Col>
         <Col xs={{ size: 3 }} className="d-flex align-items-center">
           <Button onClick={props.onClickRoll}>GO!</Button>
