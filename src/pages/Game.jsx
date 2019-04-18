@@ -63,6 +63,7 @@ class Game extends Component {
                 onClickRoll={this.handleClickRoll}
                 eggs={this.state.eggs}
                 isLoadingEggs={this.state.isLoadingEggs}
+                onClickSave={this.handleClickGamblingSave}
               />
             </Col>
           </Row>
