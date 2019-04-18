@@ -16,6 +16,9 @@ class Game extends Component {
   handleClickTryAgain = event => {
     this.setState({ score: 100 });
   };
+  handleClickRoll = event => {
+    this.setState({ score: Math.floor(Math.random() * 100) });
+  };
 
   render() {
     return (
@@ -23,7 +26,10 @@ class Game extends Component {
         <Col xs="9">
           <Row>
             <Col>
-              <Gambling onClickTryAgain={this.handleClickTryAgain} />
+              <Gambling
+                onClickTryAgain={this.handleClickTryAgain}
+                onClickRoll={this.handleClickRoll}
+              />
             </Col>
           </Row>
           <Row>
