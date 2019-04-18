@@ -1,20 +1,23 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, Input } from "reactstrap";
 
-class Register extends React.Component {
-  render() {
-    return (
-      <Form>
-        <h2>New Game</h2>
-        <FormGroup>
-          <Label for="fieldname">Your name</Label>
-          <Input type="text" name="name" id="fieldname" placeholder="Name" />
-        </FormGroup>
+const Register = props => {
+  return (
+    <Form>
+      <h2>New Game</h2>
+      <p>Enter your name : </p>
 
-        <Button>Start</Button>
-      </Form>
-    );
-  }
-}
+      <Input
+        value={props.name}
+        onChange={props.onChangeTextInput}
+        type="text"
+        name="name"
+        placeholder="Name"
+      />
+
+      <Button>Start</Button>
+    </Form>
+  );
+};
 
 export default Register;
