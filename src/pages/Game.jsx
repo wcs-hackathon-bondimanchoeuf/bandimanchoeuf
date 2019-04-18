@@ -10,14 +10,25 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 50
+      score: 50,
+      isLoadingEggStore: true,
+      eggs: []
     };
   }
 
   getDataFromApi = () => {
-    axios
-      .get("http://easteregg.wildcodeschool.fr/api/eggs")
-      .then(res => res.data.map(x => console.log(x)));
+    this.setState({ isLoadingEggStore: true });
+    let getRandomEggs = [];
+    for (let i = 0; i < 8; i++) {
+      getRandomEggs.push(
+        axios
+          .get("http://easteregg.wildcodeschool.fr/api/eggs/random")
+          .then(res => res.data)
+      );
+    }
+    Promise.all(getRandomEggs).then(eggs =>
+      this.setState({ eggs, isLoadingEggStore: false })
+    );
   };
 
   handleClickTryAgain = event => {
@@ -33,7 +44,8 @@ class Game extends Component {
         <Col xs="9">
           <Row>
             <Col>
-              <button onClick={this.getDataFromApi}>click</button>
+              <button onClick={this.getDataFromApi}>click</button>{" "}
+              {/* button to remove, only for test */}
               <Gambling
                 onClickTryAgain={this.handleClickTryAgain}
                 onClickRoll={this.handleClickRoll}
