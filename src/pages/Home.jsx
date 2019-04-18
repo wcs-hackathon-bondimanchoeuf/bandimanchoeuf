@@ -24,7 +24,7 @@ class Home extends Component {
   };
 
   render() {
-    if (this.state.shouldGoToGame === true) {
+    if (this.state.shouldGoToGame) {
       return <Redirect to="/Game" />;
     }
 
