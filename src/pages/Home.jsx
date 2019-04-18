@@ -5,12 +5,25 @@ import LastGame from "../components/LastGame.jsx";
 import Ranking from "../components/Ranking.jsx";
 
 class Home extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: ""
+    };
+  }
+
+  handleChangeRegisterTextInput = e => {
+    this.setState({ name: e.target.value });
+  };
+
   render() {
     return (
       <Row>
         <Col xs="9">
-          <Register />
+          <Register
+            onChangeTextInput={this.handleChangeRegisterTextInput}
+            name={this.state.name}
+          />
         </Col>
         <Col xs="3">
           <Row>
