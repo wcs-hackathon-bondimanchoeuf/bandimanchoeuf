@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Col, Row } from "reactstrap";
+import { Redirect } from "react-router-dom";
 import Gambling from "../components/Gambling.jsx";
 import Legend from "../components/Legend.jsx";
 import Score from "../components/Score.jsx";
@@ -12,7 +13,8 @@ class Game extends Component {
     this.state = {
       score: 50,
       isLoadingEggs: true,
-      eggs: []
+      eggs: [],
+      shouldGoToHome: false
     };
   }
 
@@ -42,7 +44,15 @@ class Game extends Component {
     this.setState({ score: Math.floor(Math.random() * 100) });
   };
 
+  handleClickGamblingSave = event => {
+    this.setState({ shouldGoToHome: true });
+  };
+
   render() {
+    if (this.state.shouldGoToHome) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Row>
         <Col xs="9">
