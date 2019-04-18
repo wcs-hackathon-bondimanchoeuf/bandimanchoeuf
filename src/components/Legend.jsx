@@ -5,6 +5,11 @@ const Legend = () => {
   return (
     <div>
       <Row>
+        <Col xs="12">
+          <h3>Legends</h3>
+        </Col>
+      </Row>
+      <Row>
         <Col xs="4">
           <div>XXX - 10 points</div>
         </Col>{" "}
