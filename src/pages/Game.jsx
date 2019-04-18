@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Col, Row } from "reactstrap";
 import Gambling from "../components/Gambling.jsx";
 import Legend from "../components/Legend.jsx";
@@ -13,6 +14,12 @@ class Game extends Component {
     };
   }
 
+  getDataFromApi = () => {
+    axios
+      .get("http://easteregg.wildcodeschool.fr/api/eggs")
+      .then(res => res.data.map(x => console.log(x)));
+  };
+
   handleClickTryAgain = event => {
     this.setState({ score: 100 });
   };
@@ -26,6 +33,7 @@ class Game extends Component {
         <Col xs="9">
           <Row>
             <Col>
+              <button onClick={this.getDataFromApi}>click</button>
               <Gambling
                 onClickTryAgain={this.handleClickTryAgain}
                 onClickRoll={this.handleClickRoll}
