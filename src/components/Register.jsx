@@ -15,7 +15,7 @@ const Register = props => {
         placeholder="Name"
       />
 
-      <Button>Start</Button>
+      <Button onClick={props.onClickButton}>Start</Button>
     </Form>
   );
 };
