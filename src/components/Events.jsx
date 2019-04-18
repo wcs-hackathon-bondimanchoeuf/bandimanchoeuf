@@ -5,8 +5,16 @@ const Events = () => {
   return (
     <div>
       <h2>Last events</h2>
-      <Table responsive>
+      <Table responsive size="sm" hover>
         <tbody>
+          <tr>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
           <tr>
             <td>Table cell</td>
             <td>Table cell</td>
