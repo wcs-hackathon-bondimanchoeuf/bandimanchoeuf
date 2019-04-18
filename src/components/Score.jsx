@@ -1,11 +1,11 @@
 import React from "react";
 
-const Score = () => {
+const Score = props => {
   return (
     <div>
       <h2>Score</h2>
       <hr />
-      <p>17</p>
+      <p>{props.score}</p>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Button } from "reactstrap";
 import gamblingEgg from "./gamblingEgg.png";
 
-const Gambling = () => {
+const Gambling = props => {
   return (
     <div>
       <Row>
@@ -24,7 +24,7 @@ const Gambling = () => {
       </Row>
       <Row>
         <Col xs={{ size: 3, offset: 9 }}>
-          <Button>Try Again</Button>
+          <Button onClick={props.onClickTryAgain}>Try Again</Button>
           <Button>Save</Button>
         </Col>
       </Row>

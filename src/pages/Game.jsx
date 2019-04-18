@@ -6,14 +6,24 @@ import Score from "../components/Score.jsx";
 import Events from "../components/Events.jsx";
 
 class Game extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: 50
+    };
+  }
+
+  handleClickTryAgain = event => {
+    this.setState({ score: 100 });
+  };
+
   render() {
     return (
       <Row>
         <Col xs="9">
           <Row>
             <Col>
-              <Gambling />
+              <Gambling onClickTryAgain={this.handleClickTryAgain} />
             </Col>
           </Row>
           <Row>
@@ -25,7 +35,7 @@ class Game extends Component {
         <Col xs="3">
           <Row>
             <Col xs="12">
-              <Score />
+              <Score score={this.state.score} />
             </Col>
           </Row>
           <Row>
