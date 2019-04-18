@@ -19,7 +19,7 @@ const Gambling = props => {
           <img src={gamblingEgg} alt="" style={{ maxWidth: "100%" }} />
         </Col>
         <Col xs={{ size: 3 }} className="d-flex align-items-center">
-          <Button>GO!</Button>
+          <Button onClick={props.onClickRoll}>GO!</Button>
         </Col>
       </Row>
       <Row>
