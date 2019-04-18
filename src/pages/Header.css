@@ -1,0 +1,9 @@
+.headerLogo {
+  text-align: left;
+}
+
+.headerTitle {
+  text-align: center;
+  background-color: chocolate;
+  font-family: "/home/stephanebs/Downloads/AssetsHackathon/fonts/LasEnter_PersonalUseOnly.ttf";
+}
