@@ -38,10 +38,11 @@ class Game extends Component {
   };
 
   handleClickTryAgain = event => {
-    this.setState({ score: 100 });
+    this.setState({ score: 50 });
   };
+
   handleClickRoll = event => {
-    this.setState({ score: Math.floor(Math.random() * 100) });
+    this.setState({ score: event.target.value });
   };
 
   handleClickGamblingSave = event => {
@@ -64,6 +65,7 @@ class Game extends Component {
                 eggs={this.state.eggs}
                 isLoadingEggs={this.state.isLoadingEggs}
                 onClickSave={this.handleClickGamblingSave}
+                score={this.state.score}
               />
             </Col>
           </Row>

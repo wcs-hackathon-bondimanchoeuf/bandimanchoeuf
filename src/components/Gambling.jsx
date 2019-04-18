@@ -7,6 +7,17 @@ const Gambling = props => {
   const idEgg2 = Math.floor(Math.random() * maxRand);
   const idEgg3 = Math.floor(Math.random() * maxRand);
 
+  let currentScore = parseInt(props.score);
+
+  if (!props.isLoadingEggs) {
+    if (idEgg1 === idEgg2 && idEgg2 === idEgg3) {
+      currentScore += 50;
+    }
+    if (idEgg1 === idEgg2 || idEgg2 === idEgg3 || idEgg3 === idEgg1) {
+      currentScore += 5;
+    }
+  }
+
   return (
     <div>
       <Row>
@@ -53,7 +64,13 @@ const Gambling = props => {
           )}
         </Col>
         <Col xs={{ size: 3 }} className="d-flex align-items-center">
-          <Button onClick={props.onClickRoll}>GO!</Button>
+          {props.isLoadingEggs ? (
+            <Spinner />
+          ) : (
+            <Button value={currentScore - 1} onClick={props.onClickRoll}>
+              GO!
+            </Button>
+          )}
         </Col>
       </Row>
       <Row>
