@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Home from "./components/Home.jsx";
-import Game from "./components/Game.jsx";
+import Header from "./pages/Header.jsx";
+import Footer from "./pages/Footer.jsx";
+import Home from "./pages/Home.jsx";
+import Game from "./pages/Game.jsx";
 
 const AppRouter = () => {
   return (
