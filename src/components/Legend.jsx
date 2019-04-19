@@ -1,5 +1,4 @@
 import React from "react";
-import { Col, Row, UncontrolledCollapse, Button } from "reactstrap";
 
 const Legend = () => {
   const egg1 =
@@ -9,81 +8,22 @@ const Legend = () => {
   const egg3 =
     "https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/ad5d66afe65240749572864e85109ec9_Large.png";
   return (
-    <div>
-      <Row>
-        <Col xs="3">
-          <Button color="primary" id="toggler" style={{ marginBottom: "2rem" }}>
-            Legend
-          </Button>
-        </Col>
-
-        <Col xs="3">
-          <UncontrolledCollapse toggler="#toggler">
-            <div>
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg2}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg1}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />{" "}
-              = 0 Points
-            </div>
-          </UncontrolledCollapse>
-        </Col>
-        <Col xs="3">
-          <UncontrolledCollapse toggler="#toggler">
-            <div>
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg2}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />{" "}
-              = 5 Points
-            </div>
-          </UncontrolledCollapse>
-        </Col>
-        <Col xs="3">
-          <UncontrolledCollapse toggler="#toggler">
-            <div>
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />
-              <img
-                src={egg3}
-                style={{ width: "15%", height: "15%" }}
-                alt="An Egg"
-              />{" "}
-              = 50 Points
-            </div>
-          </UncontrolledCollapse>
-        </Col>
-      </Row>
+    <div className="d-flex mt-2">
+      <div style={{ width: "33%", height: "18px" }}>
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg2} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg1} style={{ width: "18px" }} alt="An Egg" />= 0 Points
+      </div>
+      <div style={{ width: "33%", height: "18px" }}>
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg2} style={{ width: "18px" }} alt="An Egg" />= 5 Points
+      </div>
+      <div style={{ width: "33%", height: "18px" }}>
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />
+        <img src={egg3} style={{ width: "18px" }} alt="An Egg" />= 50 Points
+      </div>
     </div>
   );
 };

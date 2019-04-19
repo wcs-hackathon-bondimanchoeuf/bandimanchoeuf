@@ -3,10 +3,10 @@ import React from "react";
 const Score = props => {
   let scoreTitle = `${props.name}'s score`;
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h2>{scoreTitle}</h2>
       <hr />
-      <p>{props.score}</p>
+      <p style={{ fontSize: "3rem", fontWeight: "bold" }}>{props.score}</p>
     </div>
   );
 };

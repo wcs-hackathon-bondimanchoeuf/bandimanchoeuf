@@ -3,7 +3,7 @@ import { Button, Form, Input } from "reactstrap";
 
 const Register = props => {
   return (
-    <Form className="mx-auto col-12 col-md-8 col-lg-6">
+    <Form className="mx-auto col-8 col-md-8 col-lg-6 text-center">
       <h2 className="text-info">New Game</h2>
       <p className="font-italic">Enter your name</p>
 

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import style from "./Main.module.css";
 import Register from "../components/Register.jsx";
-import LastGame from "../components/LastGame.jsx";
-import Ranking from "../components/Ranking.jsx";
 import { Redirect } from "react-router-dom";
 
 class Home extends Component {
@@ -30,27 +28,15 @@ class Home extends Component {
     }
 
     return (
-      <Row>
-        <Col xs="9">
+      <div className={style.main}>
+        <div className={style.register}>
           <Register
             onChangeTextInput={this.handleChangeRegisterTextInput}
             name={this.state.name}
             onClickButton={this.handleClickRegisterButton}
           />
-        </Col>
-        <Col xs="3">
-          <Row>
-            <Col xs="12">
-              <LastGame />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs="12">
-              <Ranking />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
