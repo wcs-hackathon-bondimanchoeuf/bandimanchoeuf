@@ -1,0 +1,58 @@
+.slot {
+  background: white;
+  border: 10px black solid;
+  border-radius: 10px;
+  width: 33%;
+  min-height: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.machine {
+  background: orange;
+  display: flex;
+  padding: 2%;
+  border: black 2px solid;
+  min-height: 30vh;
+  border-radius: 12px;
+  margin: 1%;
+}
+
+.spinner {
+  vertical-align: middle;
+  min-width: 11vw;
+  margin: 15% auto;
+  min-height: 11vw;
+}
+
+.goButton {
+  margin: auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.gambling {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.imageEgg {
+  min-width: auto;
+  width: 33%;
+  min-height: auto;
+  margin: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .gambling {
+    display: flex;
+    flex-direction: column;
+  }
+}

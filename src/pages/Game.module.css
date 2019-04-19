@@ -1,0 +1,32 @@
+.containerMachine {
+  min-width: 70%;
+  max-width: 70%;
+  margin: auto;
+}
+
+.containerScore {
+  min-width: 30%;
+  max-width: 30%;
+}
+
+.containerGame {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .containerMachine {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .containerGame {
+    flex-direction: column;
+  }
+  .containerScore {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

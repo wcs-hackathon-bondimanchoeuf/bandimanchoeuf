@@ -1,10 +1,11 @@
 import React from "react";
 import { Table } from "reactstrap";
+import style from "./Events.module.css";
 
 const Events = () => {
   return (
-    <div>
-      <h2>Last events</h2>
+    <div className={style.block}>
+      <h2 style={{ color: "#17a2b8" }}>Last events</h2>
       <Table responsive size="sm" hover>
         <tbody>
           <tr>

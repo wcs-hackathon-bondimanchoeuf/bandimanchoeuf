@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import style from "./Main.module.css";
 import Register from "../components/Register.jsx";
-import LastGame from "../components/LastGame.jsx";
-import Ranking from "../components/Ranking.jsx";
 import { Redirect } from "react-router-dom";
+import queryString from "query-string";
 
 class Home extends Component {
   constructor(props) {
@@ -11,8 +10,17 @@ class Home extends Component {
 
     this.state = {
       name: "",
+      lastPlayer: "",
+      lastScore: "",
       shouldGoToGame: false
     };
+  }
+
+  componentDidMount() {
+    let URLParams = queryString.parse(this.props.location.search);
+    let lastPlayer = URLParams.name;
+    let lastScore = URLParams.score;
+    this.setState({ lastPlayer, lastScore });
   }
 
   handleChangeRegisterTextInput = e => {
@@ -23,33 +31,29 @@ class Home extends Component {
     this.setState({ shouldGoToGame: true });
   };
 
+  handleKeyPressRegisterTextInput = e => {
+    if (e.key === "Enter") {
+      this.setState({ shouldGoToGame: true });
+    }
+  };
+
   render() {
     if (this.state.shouldGoToGame) {
-      return <Redirect to="/Game" />;
+      let redirectParams = `name=${this.state.name}`;
+      return <Redirect to={{ pathname: "/Game", search: redirectParams }} />;
     }
 
     return (
-      <Row>
-        <Col xs="9">
+      <div className={style.main}>
+        <div className={style.register}>
           <Register
             onChangeTextInput={this.handleChangeRegisterTextInput}
             name={this.state.name}
             onClickButton={this.handleClickRegisterButton}
+            onKeyPress={this.handleKeyPressRegisterTextInput}
           />
-        </Col>
-        <Col xs="3">
-          <Row>
-            <Col xs="12">
-              <LastGame />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs="12">
-              <Ranking />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
