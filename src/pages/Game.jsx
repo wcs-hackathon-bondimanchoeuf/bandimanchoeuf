@@ -57,7 +57,8 @@ class Game extends Component {
 
   render() {
     if (this.state.shouldGoToHome) {
-      return <Redirect to="/" />;
+      let redirectParams = `name=${this.state.name}&score=${this.state.score}`;
+      return <Redirect to={{ pathname: "/", search: redirectParams }} />;
     }
 
     return (

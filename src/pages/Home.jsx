@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import style from "./Main.module.css";
 import Register from "../components/Register.jsx";
 import { Redirect } from "react-router-dom";
+import queryString from "query-string";
 
 class Home extends Component {
   constructor(props) {
@@ -9,8 +10,17 @@ class Home extends Component {
 
     this.state = {
       name: "",
+      lastPlayer: "",
+      lastScore: "",
       shouldGoToGame: false
     };
+  }
+
+  componentDidMount() {
+    let URLParams = queryString.parse(this.props.location.search);
+    let lastPlayer = URLParams.name;
+    let lastScore = URLParams.score;
+    this.setState({ lastPlayer, lastScore });
   }
 
   handleChangeRegisterTextInput = e => {
@@ -19,6 +29,12 @@ class Home extends Component {
 
   handleClickRegisterButton = e => {
     this.setState({ shouldGoToGame: true });
+  };
+
+  handleKeyPressRegisterTextInput = e => {
+    if (e.key === "Enter") {
+      this.setState({ shouldGoToGame: true });
+    }
   };
 
   render() {
@@ -34,6 +50,7 @@ class Home extends Component {
             onChangeTextInput={this.handleChangeRegisterTextInput}
             name={this.state.name}
             onClickButton={this.handleClickRegisterButton}
+            onKeyPress={this.handleKeyPressRegisterTextInput}
           />
         </div>
       </div>
