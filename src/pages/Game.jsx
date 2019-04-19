@@ -77,7 +77,7 @@ class Game extends Component {
 
     let score = parseInt(currentScore);
     if (idEggs[0] === idEggs[1] && idEggs[1] === idEggs[2]) {
-      score += 20;
+      score += 50;
     } else if (
       idEggs[0] === idEggs[1] ||
       idEggs[1] === idEggs[2] ||
