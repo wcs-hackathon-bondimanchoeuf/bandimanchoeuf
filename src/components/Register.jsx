@@ -1,11 +1,12 @@
 import React from "react";
 import { Button, Form, Input } from "reactstrap";
+import styles from "./Register.module.css";
 
 const Register = props => {
   return (
-    <Form className="mx-auto col-8 col-md-8 col-lg-6 text-center">
-      <h2 className="text-info">New Game</h2>
-      <p className="font-italic">Enter your name</p>
+    <Form className="mx-auto col-8 col-md-8 col-lg-6 pt-5 text-center">
+      <h2 className="text-success font-weight-bold">NEW GAME</h2>
+      <p className={`${styles.name} font-weight-bolder`}>Enter your name</p>
 
       <Input
         className="border-success"
@@ -15,8 +16,11 @@ const Register = props => {
         name="name"
         onKeyPress={props.onKeyPress}
       />
-      <Button className="mt-5 btn btn-warning" onClick={props.onClickButton}>
-        Start
+      <Button
+        className="mt-5 px-4 btn btn-warning font-weight-bolder rounded-pill"
+        onClick={props.onClickButton}
+      >
+        START
       </Button>
     </Form>
   );
