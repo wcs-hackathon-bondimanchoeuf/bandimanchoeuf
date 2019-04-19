@@ -1,11 +1,12 @@
 import React from "react";
 
 const Score = props => {
+  let scoreTitle = `${props.name}'s score`;
   return (
-    <div>
-      <h2>Score</h2>
+    <div style={{ textAlign: "center" }}>
+      <h2 style={{ color: "#17a2b8" }}>{scoreTitle}</h2>
       <hr />
-      <p>{props.score}</p>
+      <p style={{ fontSize: "3rem", fontWeight: "bold" }}>{props.score}</p>
     </div>
   );
 };
