@@ -3,6 +3,7 @@ import style from "./Main.module.css";
 import Register from "../components/Register.jsx";
 import { Redirect } from "react-router-dom";
 import queryString from "query-string";
+import LastGame from "../components/LastGame.jsx";
 
 class Home extends Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class Home extends Component {
             onClickButton={this.handleClickRegisterButton}
             onKeyPress={this.handleKeyPressRegisterTextInput}
           />
+        </div>
+        <div>
+          <LastGame name={this.state.lastPlayer} score={this.state.lastScore} />
         </div>
       </div>
     );

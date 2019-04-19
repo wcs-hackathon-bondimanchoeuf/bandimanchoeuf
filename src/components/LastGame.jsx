@@ -1,12 +1,11 @@
 import React from "react";
 
-const LastGame = () => {
+const LastGame = props => {
   return (
     <div>
       <h3>Last Game</h3>
-      <p>Name : Ezekiel</p>
-      <p>Score : 2352</p>
-      <p>position : 1er</p>
+      <p>Player : {props.name}</p>
+      <p>Score : {props.score}</p>
     </div>
   );
 };
