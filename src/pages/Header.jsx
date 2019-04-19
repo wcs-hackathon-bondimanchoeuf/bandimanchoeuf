@@ -6,12 +6,11 @@ import Logo from "./../assets/gold_egg.png";
 
 const Header = () => {
   return (
-    <Row className={`${styles.Main}`} style={{ maxHeight: "100px" }}>
+    <Row className={`${styles.Main}`}>
       <Col sm="" className="h-100 d-flex justify-content-center">
         <img
           style={{ maxHeight: "70%" }}
           className={`${styles.Logo} pr-3 my-auto`}
-          fluid
           src={Logo}
           alt="logo BanditManchoeuf"
         />
