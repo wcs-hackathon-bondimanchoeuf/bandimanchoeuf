@@ -1,5 +1,12 @@
+.headerMain {
+  margin-bottom: 50px;
+  height: 150px;
+  align-items: center;
+  background: lightsalmon;
+}
+
 .headerLogo {
-  text-align: left;
+  width: 100%;
 }
 
 .headerTitle {
