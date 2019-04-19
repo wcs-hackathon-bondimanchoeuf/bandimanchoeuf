@@ -25,7 +25,8 @@ class Home extends Component {
 
   render() {
     if (this.state.shouldGoToGame) {
-      return <Redirect to="/Game" />;
+      let redirectParams = `name=${this.state.name}`;
+      return <Redirect to={{ pathname: "/Game", search: redirectParams }} />;
     }
 
     return (
