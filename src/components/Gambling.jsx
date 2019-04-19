@@ -17,7 +17,16 @@ const Gambling = props => {
           </div>
         ) : (
           <div className={style.slot}>
-            <p>{props.eggs[idEgg1].name}</p>
+            <p
+              style={{
+                color: "#17a2b8",
+                border: "1px solid lightgreen",
+                borderRadius: "5px",
+                margin: "2px"
+              }}
+            >
+              {props.eggs[idEgg1].name}
+            </p>
             <img
               src={props.eggs[idEgg1].image}
               alt=""
@@ -31,7 +40,16 @@ const Gambling = props => {
           </div>
         ) : (
           <div className={style.slot}>
-            <p>{props.eggs[idEgg2].name}</p>
+            <p
+              style={{
+                color: "#17a2b8",
+                border: "1px solid lightgreen",
+                borderRadius: "5px",
+                margin: "2px"
+              }}
+            >
+              {props.eggs[idEgg2].name}
+            </p>
             <img
               src={props.eggs[idEgg2].image}
               alt=""
@@ -45,7 +63,16 @@ const Gambling = props => {
           </div>
         ) : (
           <div className={style.slot}>
-            <p>{props.eggs[idEgg3].name}</p>
+            <p
+              style={{
+                color: "#17a2b8",
+                border: "1px solid lightgreen",
+                borderRadius: "5px",
+                margin: "2px"
+              }}
+            >
+              {props.eggs[idEgg3].name}
+            </p>
             <img
               src={props.eggs[idEgg3].image}
               alt=""
@@ -56,7 +83,7 @@ const Gambling = props => {
       </div>
       <div className={style.buttons}>
         <div className={style.goButton}>
-          <Button color="primary" onClick={props.onClickRoll}>
+          <Button color="danger" onClick={props.onClickRoll}>
             GO!
           </Button>
         </div>
@@ -64,7 +91,7 @@ const Gambling = props => {
           <Button color="primary" onClick={props.onClickTryAgain}>
             Try Again
           </Button>
-          <Button color="primary" onClick={props.onClickSave}>
+          <Button color="warning" onClick={props.onClickSave}>
             Save and exit
           </Button>
         </div>
