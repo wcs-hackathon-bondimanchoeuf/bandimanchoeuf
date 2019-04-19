@@ -1,26 +1,21 @@
 import React from "react";
-//import "./Header.css"
+
+import "./Header.css";
+import { Row, Col } from "reactstrap";
+import Logo from "./../assets/logoBanditManchoeuf.png";
 
 const Header = () => {
   return (
-    <div>
-      <div className="headerLogo">
-        <img
-          src="/home/stephanebs/Downloads/AssetsHackathon/227659.png"
-          alt="logo BanditManchoeuf"
-        />
-      </div>
-      <div
-        className="headerTitle"
-        style={{
-          textAlign: "center",
-          color: "white",
-          fontFamily: "LasEnter_PersonalUseOnly.ttf"
-        }}
-      >
-        <h1>Le Bandit ManchOeuf</h1>
-      </div>
-    </div>
+    <Row className="headerMain">
+      <Col sm="2" className="headerLogo">
+        <div>
+          <img fluid src={Logo} alt="logo BanditManchoeuf" />
+        </div>
+      </Col>
+      <Col sm="10" className="headerTitle">
+        <h1>Bandit Manch'Oeuf</h1>
+      </Col>
+    </Row>
   );
 };
 
