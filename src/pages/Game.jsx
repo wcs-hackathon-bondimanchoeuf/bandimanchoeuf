@@ -119,7 +119,7 @@ class Game extends Component {
           <Legend />
         </div>
         <div className={style.containerScore}>
-          <Score score={this.state.score} />
+          <Score score={this.state.score} name={this.state.name} />
           <Events />
         </div>
       </div>
