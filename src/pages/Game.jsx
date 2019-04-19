@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import queryString from "query-string";
 import Gambling from "../components/Gambling.jsx";
 import Legend from "../components/Legend.jsx";
 import Score from "../components/Score.jsx";
@@ -10,6 +11,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       score: 50,
       shouldGoToHome: false
     };
@@ -25,6 +27,11 @@ class Game extends Component {
   handleClickGamblingSave = event => {
     this.setState({ shouldGoToHome: true });
   };
+
+  componentDidMount() {
+    let URLParams = queryString.parse(this.props.location.search);
+    this.setState({ name: URLParams.name });
+  }
 
   render() {
     if (this.state.shouldGoToHome) {
@@ -52,7 +59,7 @@ class Game extends Component {
         <Col xs="3">
           <Row>
             <Col xs="12">
-              <Score score={this.state.score} />
+              <Score score={this.state.score} name={this.state.name} />
             </Col>
           </Row>
           <Row>
