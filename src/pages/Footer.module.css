@@ -1,0 +1,13 @@
+.footer {
+  height: 50px;
+  align-items: center;
+  background: rgb(109, 98, 73);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.color {
+  color: black;
+  font-weight: 500;
+}
