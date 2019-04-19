@@ -14,6 +14,8 @@ class Game extends Component {
       score: 50,
       isLoadingEggs: true,
       eggs: [],
+      idEggs: [],
+      displayedEggs: [0, 0, 0],
       shouldGoToHome: false
     };
   }
@@ -33,7 +35,9 @@ class Game extends Component {
       );
     }
     Promise.all(getRandomEggs).then(eggs =>
-      this.setState({ eggs, isLoadingEggs: false })
+      this.setState({ eggs, isLoadingEggs: false }, () =>
+        this.computeDisplayedEgg()
+      )
     );
   };
 
@@ -41,8 +45,47 @@ class Game extends Component {
     this.setState({ score: 50 });
   };
 
+  computeDisplayedEgg = () => {
+    let maxRand = this.state.eggs.length;
+
+    const idEggs = [];
+    idEggs[0] = Math.floor(Math.random() * maxRand);
+    idEggs[1] = Math.floor(Math.random() * maxRand);
+    idEggs[2] = Math.floor(Math.random() * maxRand);
+
+    this.setState({ idEggs }, () => {
+      const displayedEggs = [
+        this.state.eggs[idEggs[0]],
+        this.state.eggs[idEggs[1]],
+        this.state.eggs[idEggs[2]]
+      ];
+      this.setState({ displayedEggs });
+    });
+  };
+
+  computeNewScore = () => {
+    let currentScore = this.state.score;
+    const idEggs = this.state.idEggs;
+
+    let score = parseInt(currentScore);
+    if (idEggs[0] === idEggs[1] && idEggs[1] === idEggs[2]) {
+      score += 20;
+    } else if (
+      idEggs[0] === idEggs[1] ||
+      idEggs[1] === idEggs[2] ||
+      idEggs[2] === idEggs[0]
+    ) {
+      score += 5;
+    } else {
+      score--;
+    }
+
+    this.setState({ score });
+  };
+
   handleClickRoll = event => {
-    this.setState({ score: event.target.value });
+    this.computeDisplayedEgg();
+    this.computeNewScore();
   };
 
   handleClickGamblingSave = event => {
@@ -62,7 +105,7 @@ class Game extends Component {
               <Gambling
                 onClickTryAgain={this.handleClickTryAgain}
                 onClickRoll={this.handleClickRoll}
-                eggs={this.state.eggs}
+                displayedEggs={this.state.displayedEggs}
                 isLoadingEggs={this.state.isLoadingEggs}
                 onClickSave={this.handleClickGamblingSave}
                 score={this.state.score}

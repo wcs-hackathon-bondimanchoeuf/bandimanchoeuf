@@ -2,22 +2,6 @@ import React from "react";
 import { Row, Col, Button, Spinner } from "reactstrap";
 
 const Gambling = props => {
-  const maxRand = props.eggs.length;
-  const idEgg1 = Math.floor(Math.random() * maxRand);
-  const idEgg2 = Math.floor(Math.random() * maxRand);
-  const idEgg3 = Math.floor(Math.random() * maxRand);
-
-  let currentScore = parseInt(props.score);
-
-  if (!props.isLoadingEggs) {
-    if (idEgg1 === idEgg2 && idEgg2 === idEgg3) {
-      currentScore += 50;
-    }
-    if (idEgg1 === idEgg2 || idEgg2 === idEgg3 || idEgg3 === idEgg1) {
-      currentScore += 5;
-    }
-  }
-
   return (
     <div>
       <Row>
@@ -26,9 +10,9 @@ const Gambling = props => {
             <Spinner />
           ) : (
             <div>
-              <p>{props.eggs[idEgg1].name}</p>
+              <p>{props.displayedEggs[0].name}</p>
               <img
-                src={props.eggs[idEgg1].image}
+                src={props.displayedEggs[0].image}
                 alt=""
                 style={{ maxWidth: "100%", maxHeight: "150px" }}
               />
@@ -40,9 +24,9 @@ const Gambling = props => {
             <Spinner />
           ) : (
             <div>
-              <p>{props.eggs[idEgg2].name}</p>
+              <p>{props.displayedEggs[1].name}</p>
               <img
-                src={props.eggs[idEgg2].image}
+                src={props.displayedEggs[1].image}
                 alt=""
                 style={{ maxWidth: "100%", maxHeight: "150px" }}
               />
@@ -54,9 +38,9 @@ const Gambling = props => {
             <Spinner />
           ) : (
             <div>
-              <p>{props.eggs[idEgg3].name}</p>
+              <p>{props.displayedEggs[2].name}</p>
               <img
-                src={props.eggs[idEgg3].image}
+                src={props.displayedEggs[2].image}
                 alt=""
                 style={{ maxWidth: "100%", maxHeight: "150px" }}
               />
@@ -67,9 +51,7 @@ const Gambling = props => {
           {props.isLoadingEggs ? (
             <Spinner />
           ) : (
-            <Button value={currentScore - 1} onClick={props.onClickRoll}>
-              GO!
-            </Button>
+            <Button onClick={props.onClickRoll}>GO!</Button>
           )}
         </Col>
       </Row>
