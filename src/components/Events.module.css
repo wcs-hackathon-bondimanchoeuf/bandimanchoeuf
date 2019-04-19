@@ -1,5 +1,6 @@
 .table {
   border: black solid 2px;
+  margin-left: auto;
 }
 
 .block {
