@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Casino";
+  src: url("../assets/Casino.ttf") format("truetype");
+}
+.Main {
+  margin-bottom: 50px;
+  height: 15vh;
+  align-items: center;
+  background: rgb(109, 98, 73);
+}
+
+.Title {
+  text-align: center;
+  font-family: "Casino", serif;
+  font-size: 4rem;
+  max-width: 100%;
+  max-height: 80px;
+}
