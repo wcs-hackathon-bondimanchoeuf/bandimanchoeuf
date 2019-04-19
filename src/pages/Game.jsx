@@ -18,7 +18,8 @@ class Game extends Component {
       eggs: [],
       idEggs: [],
       displayedEggs: [0, 0, 0],
-      shouldGoToHome: false
+      shouldGoToHome: false,
+      lastEvents: []
     };
   }
 
@@ -76,7 +77,7 @@ class Game extends Component {
 
     let score = parseInt(currentScore);
     if (idEggs[0] === idEggs[1] && idEggs[1] === idEggs[2]) {
-      score += 20;
+      score += 50;
     } else if (
       idEggs[0] === idEggs[1] ||
       idEggs[1] === idEggs[2] ||
@@ -88,6 +89,12 @@ class Game extends Component {
     }
 
     this.setState({ score });
+    this.setState({
+      lastEvents: [
+        ...this.state.lastEvents,
+        [idEggs[0], idEggs[1], idEggs[2], score]
+      ]
+    });
   };
 
   handleClickRoll = event => {
@@ -120,7 +127,7 @@ class Game extends Component {
         </div>
         <div className={style.containerScore}>
           <Score score={this.state.score} name={this.state.name} />
-          <Events />
+          <Events eggs={this.state.eggs} events={this.state.lastEvents} />
         </div>
       </div>
     );
