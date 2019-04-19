@@ -3,11 +3,6 @@ import { Button, Spinner } from "reactstrap";
 import style from "./Gambling.module.css";
 
 const Gambling = props => {
-  const maxRand = props.eggs.length;
-  const idEgg1 = Math.floor(Math.random() * maxRand);
-  const idEgg2 = Math.floor(Math.random() * maxRand);
-  const idEgg3 = Math.floor(Math.random() * maxRand);
-
   return (
     <div className={style.gambling}>
       <div className={style.machine}>
@@ -25,10 +20,10 @@ const Gambling = props => {
                 margin: "2px"
               }}
             >
-              {props.eggs[idEgg1].name}
+              {props.displayedEggs[0].name}
             </p>
             <img
-              src={props.eggs[idEgg1].image}
+              src={props.displayedEggs[0].image}
               alt=""
               className={style.imageEgg}
             />
@@ -48,10 +43,10 @@ const Gambling = props => {
                 margin: "2px"
               }}
             >
-              {props.eggs[idEgg2].name}
+              {props.displayedEggs[1].name}
             </p>
             <img
-              src={props.eggs[idEgg2].image}
+              src={props.displayedEggs[1].image}
               alt=""
               className={style.imageEgg}
             />
@@ -71,10 +66,10 @@ const Gambling = props => {
                 margin: "2px"
               }}
             >
-              {props.eggs[idEgg3].name}
+              {props.displayedEggs[2].name}
             </p>
             <img
-              src={props.eggs[idEgg3].image}
+              src={props.displayedEggs[2].image}
               alt=""
               className={style.imageEgg}
             />
