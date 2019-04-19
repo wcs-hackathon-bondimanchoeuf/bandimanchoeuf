@@ -14,6 +14,7 @@ const Register = props => {
         type="text"
         name="name"
         placeholder="Name"
+        onKeyPress={props.onKeyPress}
       />
 
       <Button className="mt-5 btn btn-warning" onClick={props.onClickButton}>
