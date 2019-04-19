@@ -1,14 +1,14 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <Row>
-      <Col xs="8">
+    <div className={`${styles.footer} d-flex justify-content-around mt-5`}>
+      <div className={styles.color}>
         Created by : Nathalie, Perrine, Jonathan, Florian, Nizar, Stephane
-      </Col>
-      <Col xs="4">Hackathon WildCodeSchool 18/04/19</Col>
-    </Row>
+      </div>
+      <div className={styles.color}> Hackathon WildCodeSchool 18/04/19 </div>
+    </div>
   );
 };
 

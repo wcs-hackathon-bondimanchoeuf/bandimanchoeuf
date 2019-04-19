@@ -8,14 +8,16 @@ import Game from "./pages/Game.jsx";
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Header />
+      <div style={{ width: "96%", marginLeft: "2%" }}>
+        <Header />
 
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Game" component={Game} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/Game" component={Game} />
+        </Switch>
 
-      <Footer />
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 };

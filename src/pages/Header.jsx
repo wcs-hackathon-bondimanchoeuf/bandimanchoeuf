@@ -1,38 +1,22 @@
 import React from "react";
-//import "./Header.css"
-import { Container, Row, Col } from "reactstrap";
+
+import styles from "./Header.module.css";
+import { Row, Col } from "reactstrap";
+import Logo from "./../assets/gold_egg.png";
 
 const Header = () => {
   return (
-    <div>
-      <Container
-        fluid
-        style={{ backgroundColor: "blue", marginBottom: "50px" }}
-      >
-        <Row>
-          <Col md="3">
-            <div className="headerLogo">
-              <img
-                src="/home/stephanebs/Downloads/AssetsHackathon/227659.png"
-                alt="logo BanditManchoeuf"
-              />
-            </div>
-          </Col>
-          <Col md="9">
-            <div
-              className="headerTitle"
-              style={{
-                textAlign: "center",
-                color: "white",
-                fontFamily: "LasEnter_PersonalUseOnly.ttf"
-              }}
-            >
-              <h1>Le Bandit ManchOeuf</h1>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Row className={`${styles.Main}`}>
+      <Col sm="" className="h-100 d-flex justify-content-center">
+        <img
+          style={{ maxHeight: "70%" }}
+          className={`${styles.Logo} pr-3 my-auto`}
+          src={Logo}
+          alt="logo BanditManchoeuf"
+        />
+        <h1 className={`${styles.Title} pl-3 my-auto`}>Eggs Machine</h1>
+      </Col>
+    </Row>
   );
 };
 
