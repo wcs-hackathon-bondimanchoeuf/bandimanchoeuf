@@ -15,7 +15,7 @@ const Header = () => {
           src={Logo}
           alt="logo BanditManchoeuf"
         />
-        <h1 className={`${styles.Title} pl-3 pt-3 my-auto`}>Eggs Machine</h1>
+        <h1 className={`${styles.Title} pl-3 my-auto`}>Eggs Machine</h1>
       </Col>
     </Row>
   );
