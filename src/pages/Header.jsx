@@ -1,21 +1,28 @@
 import React from "react";
-//import "./Header.css"
+import "./Header.css";
 import { Container, Row, Col } from "reactstrap";
+import Logo from "./../assets/logoBanditManchoeuf.png";
 
 const Header = () => {
   return (
     <div>
       <Container
         fluid
-        style={{ backgroundColor: "blue", marginBottom: "50px" }}
+        style={{
+          backgroundColor: "blue",
+          marginBottom: "50px",
+          height: "150px"
+        }}
       >
         <Row>
           <Col md="3">
-            <div className="headerLogo">
-              <img
-                src="/home/stephanebs/Downloads/AssetsHackathon/227659.png"
-                alt="logo BanditManchoeuf"
-              />
+            <div
+              className="headerLogo"
+              style={{
+                padding: "10px"
+              }}
+            >
+              <img src={Logo} alt="ccc" />
             </div>
           </Col>
           <Col md="9">
@@ -24,7 +31,8 @@ const Header = () => {
               style={{
                 textAlign: "center",
                 color: "white",
-                fontFamily: "LasEnter_PersonalUseOnly.ttf"
+                fontSize: "30px",
+                padding: "10px"
               }}
             >
               <h1>Le Bandit ManchOeuf</h1>
