@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "reactstrap";
 const LastGame = props => {
   return (
-    <div>
+    <div style={{ width: "20vw" }}>
       <h3 className="lastScoreTitle text-success">Last Game</h3>
 
       <Table>
