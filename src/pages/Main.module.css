@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.register {
+  /* width: 80%; */
+  width: 100%;
+}
+leaderboard {
+  width: 20%;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .register {
+    width: 100%;
+  }
+  .leaderboard {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

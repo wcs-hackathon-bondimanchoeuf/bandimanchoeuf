@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Col, Row } from "reactstrap";
+import style from "./Game.module.css";
 import { Redirect } from "react-router-dom";
+import queryString from "query-string";
 import Gambling from "../components/Gambling.jsx";
 import Legend from "../components/Legend.jsx";
 import Score from "../components/Score.jsx";
@@ -11,6 +12,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       score: 50,
       isLoadingEggs: true,
       eggs: [],
@@ -22,6 +24,11 @@ class Game extends Component {
 
   componentDidMount() {
     this.getDataFromApi();
+    let URLParams = queryString.parse(this.props.location.search);
+    if (!URLParams.name) {
+      this.setState({ shouldGoToHome: true });
+    }
+    this.setState({ name: URLParams.name });
   }
 
   getDataFromApi = () => {
@@ -94,43 +101,28 @@ class Game extends Component {
 
   render() {
     if (this.state.shouldGoToHome) {
-      return <Redirect to="/" />;
+      let redirectParams = `name=${this.state.name}&score=${this.state.score}`;
+      return <Redirect to={{ pathname: "/", search: redirectParams }} />;
     }
 
     return (
-      <Row>
-        <Col xs="9">
-          <Row>
-            <Col>
-              <Gambling
-                onClickTryAgain={this.handleClickTryAgain}
-                onClickRoll={this.handleClickRoll}
-                displayedEggs={this.state.displayedEggs}
-                isLoadingEggs={this.state.isLoadingEggs}
-                onClickSave={this.handleClickGamblingSave}
-                score={this.state.score}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Legend />
-            </Col>
-          </Row>
-        </Col>
-        <Col xs="3">
-          <Row>
-            <Col xs="12">
-              <Score score={this.state.score} />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs="12">
-              <Events />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <div className={style.containerGame}>
+        <div className={style.containerMachine}>
+          <Gambling
+            onClickTryAgain={this.handleClickTryAgain}
+            onClickRoll={this.handleClickRoll}
+            displayedEggs={this.state.displayedEggs}
+            isLoadingEggs={this.state.isLoadingEggs}
+            onClickSave={this.handleClickGamblingSave}
+            score={this.state.score}
+          />
+          <Legend />
+        </div>
+        <div className={style.containerScore}>
+          <Score score={this.state.score} />
+          <Events />
+        </div>
+      </div>
     );
   }
 }
