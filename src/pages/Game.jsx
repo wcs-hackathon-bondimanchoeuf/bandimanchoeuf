@@ -23,7 +23,6 @@ class Game extends Component {
   componentDidMount() {
     this.getDataFromApi();
     let URLParams = queryString.parse(this.props.location.search);
-    console.log(URLParams.name);
     if (!URLParams.name) {
       this.setState({ shouldGoToHome: true });
     }
