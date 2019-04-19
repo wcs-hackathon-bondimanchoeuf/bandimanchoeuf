@@ -5,7 +5,7 @@ const Events = props => {
   let tbody = [];
   tbody = props.events
     .map((event, index) => (
-      <tr key={props.eggs[index].id}>
+      <tr key={index}>
         <td>
           <img
             src={props.eggs[event[0]].image}
