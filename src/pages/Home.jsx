@@ -10,16 +10,17 @@ class Home extends Component {
 
     this.state = {
       name: "",
+      lastPlayer: "",
+      lastScore: "",
       shouldGoToGame: false
     };
   }
 
   componentDidMount() {
     let URLParams = queryString.parse(this.props.location.search);
-    if (!URLParams.name) {
-      this.setState({ shouldGoToHome: true });
-    }
-    this.setState({ name: URLParams.name });
+    let lastPlayer = URLParams.name;
+    let lastScore = URLParams.score;
+    this.setState({ lastPlayer, lastScore });
   }
 
   handleChangeRegisterTextInput = e => {

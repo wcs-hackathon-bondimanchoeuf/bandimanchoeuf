@@ -9,7 +9,7 @@ const Header = () => {
     <Row className="headerMain">
       <Col sm="2" className="headerLogo">
         <div>
-          <img fluid src={Logo} alt="logo BanditManchoeuf" />
+          <img src={Logo} alt="logo BanditManchoeuf" />
         </div>
       </Col>
       <Col sm="10" className="headerTitle">

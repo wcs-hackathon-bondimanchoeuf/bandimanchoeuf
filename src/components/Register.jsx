@@ -13,9 +13,7 @@ const Register = props => {
         onChange={props.onChangeTextInput}
         type="text"
         name="name"
-        placeholder="Name"
       />
-
       <Button className="mt-5 btn btn-warning" onClick={props.onClickButton}>
         Start
       </Button>
