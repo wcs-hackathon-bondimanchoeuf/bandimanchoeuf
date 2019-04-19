@@ -21,6 +21,12 @@ class Home extends Component {
     this.setState({ shouldGoToGame: true });
   };
 
+  handleKeyPressRegisterTextInput = e => {
+    if (e.key === "Enter") {
+      this.setState({ shouldGoToGame: true });
+    }
+  };
+
   render() {
     if (this.state.shouldGoToGame) {
       let redirectParams = `name=${this.state.name}`;
@@ -34,6 +40,7 @@ class Home extends Component {
             onChangeTextInput={this.handleChangeRegisterTextInput}
             name={this.state.name}
             onClickButton={this.handleClickRegisterButton}
+            onKeyPress={this.handleKeyPressRegisterTextInput}
           />
         </div>
       </div>
